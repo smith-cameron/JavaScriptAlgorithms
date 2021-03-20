@@ -71,26 +71,25 @@ function duplicates(arr){
     var index;
     var temp;
     for(var i = 0; i < arr.length-1; i++){
-        console.log(i);
-        if(arr[i] != arr[i+1]){
-        }
-        else if(arr[i] == arr[i+1]){
-            console.log("arr[i]: "+arr[i]);
-            console.log("arr[i+1]: "+arr[i+1]);
+        if(arr[i] == arr[i+1]){
             index = i;
-            console.log("var index: "+index);
             for(var i = index; i < arr.length-1; i++){
                 temp = arr[i];
-                console.log("temp: "+temp);
                 arr[i] = arr[i+1];
-                console.log("arr[i]: "+arr[i]);
                 arr[i+1] = temp;
-                console.log("arr[i+1]: "+arr[i+1]);
-                console.log(arr);
             }
-            console.log(i);
+            arr.pop();
         }
-        console.log(i);
+    }for(var i = 0; i < arr.length-1; i++){
+        if(arr[i] == arr[i+1]){
+            index = i;
+            for(var i = index; i < arr.length-1; i++){
+                temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
+            }
+            arr.pop();
+        }
     }
     return arr;
 }
