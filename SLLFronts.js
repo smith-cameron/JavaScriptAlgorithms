@@ -3,34 +3,48 @@ class Node{
         this.val = value;
         this.next = null;
     }
-
-
-    // addFront(value){
-    //     newNode = newNode(value);
-    //     newNode.next = this.head;
-    //     this.head = newNode;
-    //     return this;
-    // }
-    // removeFront(){
-
-    // }
-    // frontValue(){
-
-    // }
 }
-var nodeA = new Node(10);
-var nodeB = new Node(17);
-var nodeC = new Node(4);
-var nodeD = new Node(93);
+class SLL{
+    constructor(head){
+        this.head = null;
+    }
+    addFront(value){
+        newNode = newNode(value);
+        newNode.next = this.head;
+        this.head = newNode;
+        return this;
+    }
+    frontValue(){
+        if(this.head){
+            return this.head.value;
+        }else{
+            return null;
+        }
+    }
+    appendNode(node){
+        if(this.head){
+            var runner = this.head;
+            while (runner.next !== null){
+                runner = runner.next;
+            }
+            runner.next = node;
+        }else{
+            this.head = node;
+        }
+        return this.head;
+    }
+    removeFront(){
+        if(this.head.next){
+            this.head = this.head.next;
+        }else{
+            return null;
+        }
+    }
+}
 
-nodeA.next = nodeB;
-nodeB.next = nodeC;
-nodeC.next = nodeD;
-nodeD.next = null;
-
-console.log(nodeA);
-
-// class SLL{
-//     constructor(head){
-
-//     }
+var myLinkedList = new SLL();
+var myArr = [45,2,87,45,9,5,34,23,98,1];
+// for(var i = 0; i< myArr.length; i++){
+//     myLinkedList.appendNode(new Node(myArr[i]));
+// }
+console.log(myLinkedList.head);
