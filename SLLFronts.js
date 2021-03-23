@@ -31,11 +31,12 @@ class SLL{
         }else{
             this.head = node;
         }
-        return this.head;
+        return this;
     }
     removeFront(){
         if(this.head.next){
             this.head = this.head.next;
+            return this;
         }else{
             return null;
         }
@@ -44,7 +45,7 @@ class SLL{
 
 var myLinkedList = new SLL();
 var myArr = [45,2,87,45,9,5,34,23,98,1];
-// for(var i = 0; i< myArr.length; i++){
-//     myLinkedList.appendNode(new Node(myArr[i]));
-// }
-console.log(myLinkedList.head);
+for(var i = 0; i< myArr.length; i++){
+    myLinkedList.appendNode(new Node(myArr[i]));
+}
+console.log(myLinkedList.removeFront());
