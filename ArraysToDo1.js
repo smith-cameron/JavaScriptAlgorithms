@@ -64,7 +64,7 @@ function swap(arr){
     }
     return arr;
 }
-//console.log(swap(arr));
+console.log(swap(arr));
 
 //Remove Duplicates
 function duplicates(arr){
@@ -93,4 +93,4 @@ function duplicates(arr){
     }
     return arr;
 }
-console.log(duplicates(arr));
+//console.log(duplicates(arr));
