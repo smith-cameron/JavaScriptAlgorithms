@@ -10,42 +10,36 @@ function reverse(arr){
 //var anArray = [1,2,3,4];
 //console.log(reverse(anArray));
 
-var anArray = [1,2,3,4,5,6,7];
-var offset = 2;
 function rotate(arr, num){
-    var last = arr.length-1;
-    var temp = 0;
-    var swap = arr[arr.length-1];
-    var swap2 = arr[arr.length-2];
-    arr[arr.length-1] = swap2;
-    arr[arr.length-num] = swap;
-    for(var i = arr.length-1; i > 1 ; i--){
-        console.log("var i is: "+i);
-        temp = arr[i];
-        console.log("var temp is: "+temp);
-        arr[i] = arr[i-num];
-        arr[i-num] = temp;
+    var len = arr.length;
+    for(var i = 0; i < num; i++){
+        var temp = arr[len-1];
+        for(let i = len-1; i > 0; i--){
+            //how come this only works with let instead of var?
+            arr[i] = arr[i-1];
+        }
+        arr[0] = temp;
     }
     return arr;
 }
+var anArray = [1,2,3,4,5,6,7];
+var offset = 3;
 console.log(rotate(anArray, offset));
 
-// function rotate(arr, num){
-//     var last = arr.length-1;
-//     var temp = 0;
-
-//     for(var i = arr.length-1; i > 0 ; i--){
-//         console.log("var i is: "+i);
-//         temp = arr[i];
-//         console.log("var temp is: "+temp);
-//         arr[i] = arr[i-num];
-//         arr[i-num] = temp;
-//     }
-//     return arr;
-// }
-
-
-
+function rotateLeft(arr, num) {
+    var len = arr.length;
+    for(var i = 0; i < num; i++){
+        var temp = arr[0];
+        for(let i = 0; i < len; i++){
+            arr[i] = arr[i+1];
+        }
+        arr[len-1] = temp;
+    }
+    return arr;
+}
+//var arr = [1,2,3,4,5,6,7];
+//var offset = 3;
+//console.log(rotateLeft(arr, offset));
 
 //var anArr = [1,6,34,65,23,87,4,6,9,22,33,12,16,18,42,21];
 //var min = 10;
